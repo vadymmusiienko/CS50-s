@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Buy more</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>
+                        <form action="/buy" method="post">
+                            <div class="btn-group me-2">
+                                <button type="submit" class="btn btn-secondary btn-sm" name="shares" value="1">+1</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" name="shares" value="3">+3</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" name="shares" value="5">+5</button>
+                            </div>
+                                <input type="hidden" name="symbol" value="{{ stock.symbol }}">
+                        </form>
+                    </td>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.total_shares }}</td>
+                    <td>{{ stock.price | usd}}</td>
+                    <td>{{ (stock.price * stock.total_shares) | usd}}</td>
+
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="3"></td>
+                    <th scope="row">Cash</td>
+                    <td>{{ cash | usd }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <th scope="row">TOTAL</td>
+                    <td>{{ total | usd }}</td>
+                </tr>
+        </tbody>
+
+    </table>
+{% endblock %}

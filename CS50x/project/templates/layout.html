@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Block for the title -->
+    <title>
+        SmokeFreeTally: {% block title %}{% endblock %}
+    </title>
+
+    <!-- Block for the stylesheet -->
+    {% block styles %}
+        <link rel="stylesheet" href="/static/styles.css">
+    {% endblock %}
+
+    <!-- Block for JavaScript files -->
+    {% block scripts %}
+        <script src="/static/scripts.js" defer></script>
+    {% endblock %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Navigation block -->
+    {% block nav %}{% endblock %}
+
+    <!-- Main block -->
+    {% block main %}{% endblock %}
+
+    <!-- Footer block -->
+     {% block footer %}{% endblock %}
+
+</body>
+</html>

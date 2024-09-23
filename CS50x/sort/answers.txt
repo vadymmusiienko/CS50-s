@@ -1,0 +1,8 @@
+sort1 uses: Bubble search
+How do you know?: Because it was very fast with a sorted array (the other 2 were not as fast)
+
+sort2 uses: Merge sort
+How do you know?: Because it was very fast and consistant regardless of the array
+
+sort3 uses: Selection sort
+How do you know?: takes a long time to sort a sorted array

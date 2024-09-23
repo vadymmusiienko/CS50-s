@@ -1,0 +1,2 @@
+In order to characterize user's audio aura we would have to calculate avarages for energy, valence, and danceability and based on that we can tell user's aura using conditionals of some sort.
+The top 100 songs from 2018 might not reflect the listener's current mood or preferences.

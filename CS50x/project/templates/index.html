@@ -1,0 +1,132 @@
+{% extends "navbar_layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block styles %}
+    <!-- Styles for navbar -->
+    <link rel="stylesheet" href="/static/navbar.css">
+    <link rel="stylesheet" href="/static/homepage.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/home.js" defer></script>
+    <script src="/static/navbar.js" defer></script>
+{% endblock %}
+
+{% block main %}
+
+<main>
+
+    <section class="card">
+
+        <!-- Profile person -->
+        <div class="wrap">
+
+            <div class="imgs">
+                <img class="{{ information.gender }}" id="profile_img" src="/static/images/person/head.png" alt="Profile">
+    
+                <div class="image-container">
+                    <img id="chest_img" src="/static/images/person/chest.png" alt="Lungs">
+                    <img id="lungs_img" src="/static/images/person/{{ information.lungs }}" alt="Chest">   <!-- todo: lungs3 -->
+                </div>
+    
+                <img id="legs_img" src="/static/images/person/legs.png" alt="Legs">
+            </div>
+    
+            <!-- Information -->
+            <div class="info">
+    
+                <div class="name">
+                    <h2>{{ information.first_name }} {{ information.last_name }}</h2>
+                    <h4>{{ information.email }}</h4>
+                </div>
+    
+                <!-- Block of details -->
+                <p class="text">
+                    Progress
+                </p>
+    
+                <ul class="details">
+                    
+                    <li>
+                        <h3>{{ information.total_logs }}</h3>
+                        <h4>Days without smoking</h4>
+                    </li>
+    
+                    <li>
+                        <h3>{{ information.cigarettes_not_smoked }}</h3>
+                        <h4>Cigarettes not smoked</h4>
+                    </li>
+
+                    <li>
+                        <h3>{{ information.streak }}</h3>
+                        <h4>Days your current streak</h4>
+                    </li>
+    
+                    <li>
+                        <h3>{{ information.money_saved }}</h3>
+                        <h4>USD Saved</h4>
+                    </li>
+    
+                </ul>
+    
+                <!-- Block of achievements (badges) -->
+                <p class="text">
+                    Badges
+                </p>
+    
+                <ul class="details">
+                    
+                    <li class="first-row">
+                        <div>
+                            <img src="/static/images/achievements/start.png" alt="Start">
+                            <span class="tooltip">Create an account!</span>
+                        </div>
+                        
+                        <div>
+                            <img src="/static/images/achievements/{% if information.money_saved >= 500 %}money.png{% else %}money_bw.png{% endif %}" alt="Money">
+                            <span class="tooltip">Save 500 $!</span>
+                        </div>
+
+                        <div>
+                            <img src="/static/images/achievements/{% if information.cigarettes_not_smoked >= 1000 %}thousand.png{% else %}thousand_bw.png{% endif %}" alt="Thousand">        
+                            <span class="tooltip">A thousand not smoked cigarettes!</span>
+                        </div>
+                    
+                    </li>
+    
+                    <li class="second-row">
+                        <div>
+                            <img src="/static/images/achievements/{% if information.total_logs >= 30 %}month.png{% else %}month_bw.png{% endif %}" alt="Month">    
+                            <span class="tooltip">A month without cigarettes!</span>
+                        </div>
+                        
+                        <div>
+                            <img src="/static/images/achievements/{% if information.total_logs >= 30 %}lungs.png{% else %}lungs_bw.png{% endif %}" alt="Lungs">                            
+                            <span class="tooltip">Unlock all lungs!</span>
+                        </div>
+                        
+                        <div>
+                            <img src="/static/images/achievements/{% if information.streak >= 60 %}winner.png{% else %}winner_bw.png{% endif %}" alt="Everything">    
+                            <span class="tooltip">60-day streak!</span>
+                        </div>
+                        
+                    </li>
+    
+                </ul>
+    
+                <form action="/" method="post" class="log-button {% if information.disabled %}disabled{% endif %}">
+                    <button id="disabled" class="log-day" type="submit" {% if information.disabled %}disabled{% endif %}>Log Smoke-Free Day</button>
+                </form>
+    
+            </div>
+
+        </div>
+            
+    </section>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+HTML tags I've used:
+<div>
+<h1>
+<a>
+<img>
+<b>
+<iframe>
+<br>
+<p>
+<h4>
+<link>
+
+CSS properties I've used:
+font-family
+text-align
+color
+background-color
+min-height
+
+I used Bootstrap for my About and Experience page. I used their alerts to impliment descriptions in columns.
+I used JavaScript for my About page. I used JS to show more content about me when a user clicks on "more...click here".
+Also I added a secret feature, when hover over homepage (my favorite assignment) it becomes a hyperlink and changes its name to "HOME".

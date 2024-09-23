@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+    <p>
+        Stock - {{ symbol }}
+    </p>
+    <p>
+        Current price - {{ price | usd }}
+    </p>
+
+{% endblock %}

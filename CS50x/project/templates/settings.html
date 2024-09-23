@@ -1,0 +1,118 @@
+{% extends "navbar_layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block styles %}
+    <!-- Styles for navbar -->
+    <link rel="stylesheet" href="/static/navbar.css">
+    <link rel="stylesheet" href="/static/settings.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/settings.js" defer></script>
+    <script src="/static/navbar.js" defer></script>
+{% endblock %}
+
+{% block main %}
+
+<main>
+    
+    <section class="card">
+
+        <div class="wrap">
+            
+            <!-- Person -->
+            <div class="imgs">
+
+                <img id="profile_img" src="/static/images/person/head.png" alt="Head">
+                <div class="image-container">
+                    <img id="chest_img" src="/static/images/person/chest.png" alt="Chest">
+                    <img id="lungs_img" src="/static/images/person/{{ lungs }}" alt="Lugns">
+                </div>
+    
+            </div>
+
+            <!-- Information -->
+
+            <div class="info">
+
+                <!-- Title -->
+                <div class="title">
+                    <h2>Settings</h2>
+                </div>
+
+                <!-- Heading of a section of the settings -->
+                <div class="heading">
+                    <h4>General Information</h4>
+                </div>
+
+                <!-- Section of the settings -->
+                <form class="section" action="/settings" method="post">
+
+                    <div>My First name is 
+                        <div class="mini-wrapper">
+                            <input onblur="handleBlur(this)" maxlength="20" oninput="limitInput(this)" type="text" name="first_name" {% if user_information is not none %} value="{{ user_information.first_name }}" {% endif %} autofocus required> 
+                        </div>
+                    </div>
+
+                    <div>My Last name is 
+                        <div class="mini-wrapper">
+                            <input onblur="handleBlur(this)" maxlength="20" oninput="limitInput(this)" type="text" name="last_name" {% if user_information is not none %} value="{{ user_information.last_name }}" {% endif %} required>
+                        </div> 
+                    </div>
+
+                    <div>My Email is 
+                        <div class="mini-wrapper">
+                            <input class="input_text" onblur="handleBlur(this)" maxlength="35" oninput="limitInput(this)" type="email" name="email" {% if user_information is not none %} value="{{ user_information.email }}" {% endif %} required>
+                        </div> 
+                    </div>
+
+                    <div>I smoke
+                        <div class="mini-wrapper input-num">
+                            <input onblur="handleBlur(this)" maxlength="2" oninput="limitInput(this)" class="input-num" type="number" name="cigarettes_per_day" {% if user_information is not none %} value="{{ user_information.cigarettes_per_day }}" {% endif %} required>
+                        </div> 
+                        cigarettes per day.
+                    </div>
+                        
+
+                    <div>
+                        A pack of cigarettes costs 
+                        <div class="mini-wrapper input-num">
+                            <input onblur="handleBlur(this)" maxlength="2" oninput="limitInput(this)" class="input-num" type="number" name="pack_cost" {% if user_information is not none %} value="{{ user_information.pack_cost }}" {% endif %} required>
+                        </div>
+                        usd.
+                    </div>
+                    
+                    <!-- Select a gender (dropdown) -->
+                    <div>
+                        I am a 
+                        <select name="gender" id="gender">
+                            <option value="male" {% if user_information.gender == "male" %} selected {% endif %}>male</option>
+                            <option value="female" {% if user_information.gender == "female" %} selected {% endif %}>female</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit changees button -->
+                    <div class="confirm-button">
+                        <button id="confirm" type="submit">Confirm</button>
+                    </div>
+
+                </form>
+                    
+
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+    
+</main>
+
+{% endblock %}

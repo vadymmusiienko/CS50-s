@@ -1,0 +1,25 @@
+{% extends "login&layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block login_h1 %}
+    <h1>Create Your Account</h1>
+{% endblock %}
+
+{% block login_message %}<p>Sign up to join SmokeFreeTally and start tracking your smoke-free journey.</p>{% endblock %}
+
+{% block confirm %}
+    <input type="password" name="password-confirm" placeholder="Confirm Password" minlength="5" maxlength="20" required>
+{% endblock %}
+
+{% block extra_right %}
+    <a href="/login">Log in?</a>
+{% endblock %}
+
+{% block sign_in %}{% endblock %}
+
+{% block sign_up%}
+    <button class="white-button" type="submit">Register<button>
+{% endblock %}
